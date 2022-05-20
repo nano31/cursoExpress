@@ -1,0 +1,24 @@
+Express --> framework de node, permite crear aplicaciones web del lado del servidor. Permite crear las aplicaciones
+            utilizando JS puro.
+            Facilita la creacion de aplicaciones web. Se complementa de modulos de NPM.
+            Es asincrono y escrito en un solo hilo.
+            Genera el concepto MEAN/MERN.
+            Permite escribir codigo de NODEJS de forma mas simple.
+Servidor --> Se encarga de enviar los diferentes archivos y recibir los datos de los usuarios.
+
+buena practica, crear el package.json --> npm init -y 
+    describe el proyecto, es decir, brinda informacion del mismo
+
+nodemon --> modulo que reinicia el servidor automaticamente.
+    --save-dev se puede abreviar con -D
+    install se puede abreviar con i
+    instalar nodemon --> npm install nodemon --save-dev
+
+    npx nodemon index.js --> ejecuta el servidor
+
+get es el metodo por default para pedir cosas.
+
+json --> indica que se va a devolver un objeto de js
+
+aunque las peticiones tengan el mismo nombre en el /, no va a haber problema, en caso de que se trabaje
+con distintos metodos http, en caso contrario, si
