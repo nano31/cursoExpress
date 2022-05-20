@@ -13,32 +13,42 @@
 
 //CREACION DEL SERVIDOR CON EXPRESS
 
-const express = require('express');
+const express = require("express");
 const app = express(); //permite ejecutar el modulo express, devuelve un modulo en formato json
 
 app.use(express.json()); //hace que express pueda entender objetos json
 
-app.get('/user',(req, res) =>{ //permite responder a las peticiones (ruta)
-    res.json({ //devuelve un objeto js
-        username: 'Cameron',
-        lastname: 'How'
-    }); 
+//all crea una ruta, en la cual todos los /user, pasan primero por el all.
+//para que continue se debe agregar el parámetro next
+app.all("/user", (req, res, next) => {
+  console.log("paso");
+  next();
 });
 
-app.post('/user/:id', (req, res) =>{ //crea la ruta /about, se pueden crear tantas rutas como se quiera
-    console.log(req.body);
-    console.log(req.params);
-    res.send('Peticion POST');
+app.get("/user", (req, res) => {
+  //permite responder a las peticiones (ruta)
+  res.json({
+    //devuelve un objeto js
+    username: "Cameron",
+    lastname: "How",
+  });
 });
 
-app.put('/contact', (req, res) =>{
-    res.send('Peticion PUT');
+app.post("/user/:id", (req, res) => {
+  //crea la ruta /about, se pueden crear tantas rutas como se quiera
+  console.log(req.body);
+  console.log(req.params);
+  res.send("Peticion POST");
 });
 
-app.delete('/test',(req, res) => {
-    res.send('Peticion DELETE');
+app.put("/contact", (req, res) => {
+  res.send("Peticion PUT");
+});
+
+app.delete("/test", (req, res) => {
+  res.send("Peticion DELETE");
 });
 
 app.listen(5000, () => {
-    console.log('Server on port 5000');
+  console.log("Server on port 5000");
 });
